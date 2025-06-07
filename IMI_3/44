@@ -1,0 +1,9 @@
+sonlar = list(map(int, input().split()))
+natija = []
+
+for son in sonlar:
+    if son == 44:
+        break
+    natija.append(str(son))
+
+print(" ".join(natija))
