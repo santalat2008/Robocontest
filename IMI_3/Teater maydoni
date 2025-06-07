@@ -1,0 +1,4 @@
+n,m,a=map(int,input().split())
+u=(n+a-1)//a
+e=(m+a-1)//a
+print(u*e)
