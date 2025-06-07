@@ -1,0 +1,5 @@
+a = input()
+b = input()
+
+natija = b.join(a)
+print(natija)
