@@ -1,0 +1,4 @@
+k, n, w = map(int, input().split())
+p = k * w * (w + 1) // 2
+q = p - n
+print(q if q > 0 else 0)
