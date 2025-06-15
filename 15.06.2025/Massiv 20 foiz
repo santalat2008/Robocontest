@@ -1,0 +1,14 @@
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+from collections import defaultdict
+qoldiq_soni = defaultdict(int)
+yigindi = 0
+javob = 0
+qoldiq_soni[0] = 1
+for son in a:
+    yigindi += son
+    qoldiq = yigindi % k
+    javob += qoldiq_soni[qoldiq]
+    qoldiq_soni[qoldiq] += 1
+
+print(javob)
