@@ -1,0 +1,32 @@
+import sys
+sys.setrecursionlimit(1 << 25)
+
+n, m = map(int, input().split())
+a = list(map(int, input().split()))
+
+p = list(range(n))
+
+def f(x):
+    if p[x] != x:
+        p[x] = f(p[x])
+    return p[x]
+
+def u(x, y):
+    x, y = f(x), f(y)
+    if x != y:
+        p[y] = x
+for _ in range(m):
+    x, y = map(int, input().split())
+    u(x - 1, y - 1)
+from collections import defaultdict
+gr = defaultdict(list)
+for i in range(n):
+    gr[f(i)].append(i)
+res = a[:]
+for ids in gr.values():
+    vals = [a[i] for i in ids]
+    ids.sort()
+    vals.sort()
+    for i, v in zip(ids, vals):
+        res[i] = v
+print(*res)
