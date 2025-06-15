@@ -1,0 +1,12 @@
+n = int(input())
+a = list(map(int, input().split()))
+
+def ok(x):
+    while x % 2 == 0:
+        x //= 2
+    while x % 3 == 0:
+        x //= 3
+    return x == 1
+
+res = [str(x) for x in a if ok(x)]
+print(' '.join(res))
