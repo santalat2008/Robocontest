@@ -1,0 +1,26 @@
+seg = [
+    "1111110",
+    "0110000",
+    "1101101",
+    "1111001",
+    "0110011",
+    "1011011",
+    "1011111",
+    "1110000",
+    "1111111",
+    "1111011"
+]
+
+n = input().zfill(2)
+a, b = int(n[0]), int(n[1])
+target = (seg[a], seg[b])
+
+cnt = 0
+for i in range(100):
+    x, y = divmod(i, 10)
+    cand = (seg[x], seg[y])
+    if all(c1[i] == '1' or c2[i] == '0' for c1, c2 in zip(cand, target) for i in range(7)):
+        cnt += 1
+
+print(cnt)
+
