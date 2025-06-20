@@ -1,0 +1,12 @@
+t = int(input())
+qidir = "robocontest"
+
+for _ in range(t):
+    s = input().strip()
+    j = 0
+    for ch in s:
+        if ch == qidir[j]:
+            j += 1
+            if j == len(qidir):
+                break
+    print("YES" if j == len(qidir) else "NO")
