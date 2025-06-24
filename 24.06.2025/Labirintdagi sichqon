@@ -1,0 +1,25 @@
+n = int(input())
+m = [list(map(int, input().split())) for _ in range(n)]
+res = []
+dx = [1, 0, 0, -1]
+dy = [0, -1, 1, 0]
+dr = ['D', 'L', 'R', 'U']
+def ok(x, y, v):
+    return 0 <= x < n and 0 <= y < n and m[x][y] == 1 and not v[x][y]
+def go(x, y, p, v):
+    if x == n-1 and y == n-1:
+        res.append(p)
+        return
+    for i in range(4):
+        nx, ny = x + dx[i], y + dy[i]
+        if ok(nx, ny, v):
+            v[nx][ny] = 1
+            go(nx, ny, p + dr[i], v)
+            v[nx][ny] = 0
+if m[0][0] == 1 and m[n-1][n-1] == 1:
+    v = [[0]*n for _ in range(n)]
+    v[0][0] = 1
+    go(0, 0, "", v)
+print(-1 if not res else ' '.join(sorted(res)))
+
+
