@@ -1,0 +1,15 @@
+n, q = map(int, input().split())
+a = list(map(int, input().split()))
+f = [0] * (n + 1)
+for _ in range(q):
+    l, r = map(int, input().split())
+    f[l - 1] += 1
+    f[r] -= 1
+for i in range(1, n):
+    f[i] += f[i - 1]
+f.pop()
+a.sort(reverse=True)
+f.sort(reverse=True)
+
+ans = sum(x * y for x, y in zip(a, f))
+print(ans)
