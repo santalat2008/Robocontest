@@ -1,0 +1,13 @@
+n = int(input())
+MAX = n + 1
+tub = [True] * MAX
+tub[0] = tub[1] = False
+for i in range(2, int(n ** 0.5) + 1):
+    if tub[i]:
+        for j in range(i * i, MAX, i):
+            tub[j] = False
+for x in range(4, n):
+    y = n - x
+    if y > 1 and not tub[x] and not tub[y]:
+        print(x, y)
+        break
