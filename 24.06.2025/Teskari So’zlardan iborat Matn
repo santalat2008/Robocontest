@@ -1,0 +1,11 @@
+k = int(input())
+matn = input()
+
+natija = []
+for soz in matn.split():
+    if len(soz) > k:
+        natija.append(soz[::-1])
+    else:
+        natija.append(soz)
+
+print(' '.join(natija))
