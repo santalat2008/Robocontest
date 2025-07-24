@@ -1,0 +1,8 @@
+A, B, M = map(int, input().split())
+res = 0
+for x in range(M // A + 1):
+    y = (M - x * A) // B
+    total = x * A + y * B
+    if total > res:
+        res = total
+print(res)
