@@ -1,0 +1,15 @@
+n, m = map(int, input().split())
+a = [list(map(int, input().split())) for _ in range(n)]
+s = 0
+for i in range(n):
+    for j in range(m):
+        x = a[i][j]
+        if x == 0: continue
+        s += 2
+        for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:
+            ni, nj = i+dx, j+dy
+            if 0<=ni<n and 0<=nj<m:
+                s += max(0, x - a[ni][nj])
+            else:
+                s += x
+print(s)
