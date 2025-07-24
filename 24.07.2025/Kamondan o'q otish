@@ -1,0 +1,18 @@
+n, R = map(int, input().split())
+A, B, C = map(int, input().split())
+
+rA2 = (R / 2) ** 2
+rB2 = (R / 4) ** 2
+rC2 = (R / 6) ** 2
+
+res = 0
+for _ in range(n):
+    x, y = map(int, input().split())
+    d2 = x * x + y * y
+    if d2 <= rC2:
+        res += C
+    elif d2 <= rB2:
+        res += B
+    elif d2 <= rA2:
+        res += A
+print(res)
