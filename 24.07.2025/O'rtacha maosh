@@ -1,0 +1,7 @@
+n = int(input())
+a = list(map(int, input().split()))
+a.remove(min(a))
+a.remove(max(a))
+avg = sum(a) / len(a)
+print("{:.5f}".format(avg))
+
