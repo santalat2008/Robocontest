@@ -1,0 +1,21 @@
+def chk(s):
+    for l in range(1, len(s)//2 + 1):
+        a = s[:l]
+        if a[0] == '0':
+            continue
+        x = int(a)
+        t = ""
+        y = x
+        while len(t) < len(s):
+            t += str(y)
+            y += 1
+        if t == s:
+            return True, x
+    return False, -1
+
+t = int(input())
+for _ in range(t):
+    s = input().strip()
+    ok, x = chk(s)
+    print(f"YES {x}" if ok else "NO")
+
