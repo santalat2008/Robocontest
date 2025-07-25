@@ -1,0 +1,10 @@
+n = int(input())
+a = list(map(int, input().split()))
+r = 0
+c = 0
+for i in range(n + 1):
+    s = 1 << i
+    t = a[i] * s + c
+    r += t // (1 << n)
+    c = t % (1 << n)
+print(-1 if c else r)
